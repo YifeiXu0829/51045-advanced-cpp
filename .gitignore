@@ -32,4 +32,4 @@
 *.app
 
 # builds
-*build/*
+build/

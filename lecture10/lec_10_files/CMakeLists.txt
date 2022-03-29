@@ -12,5 +12,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
 
-add_executable(my_promise my_promise.cpp)
+add_executable(hw10-2 hw10-2.cpp)
 add_executable(hw10-1 hw10-1.cpp)

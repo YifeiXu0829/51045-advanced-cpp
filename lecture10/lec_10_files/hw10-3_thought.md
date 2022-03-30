@@ -1,0 +1,2 @@
+To get rid of locks, the State has to be atomic and has to be always lock free. In this case we only have 3 states so the enumeration class can be uint8_t to make sure it always lock free. Then in MyFuture::get() we wait state on State::empty, wait for MyPromise to wake it up.
+I really think this optimization should work and do not apply the first rule of optimization. Please see my_promise_atomic.h for details of implementation.

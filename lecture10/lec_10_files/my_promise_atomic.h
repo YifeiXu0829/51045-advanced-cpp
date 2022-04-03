@@ -1,6 +1,7 @@
 #ifndef MY_PROMISE_H
 #  define MY_PROMISE_H
 #include<memory>
+#include <atomic>
 #include<thread>
 #include<mutex>
 #include<condition_variable>

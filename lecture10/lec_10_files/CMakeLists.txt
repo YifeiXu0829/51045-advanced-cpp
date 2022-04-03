@@ -10,7 +10,7 @@ project (projectname VERSION "1.1.0")
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++2a")
 
 add_executable(my_promise_atomic my_promise_atomic.cpp)
 add_executable(hw10-2 hw10-2.cpp)

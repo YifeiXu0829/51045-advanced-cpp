@@ -1,6 +1,7 @@
 #include "remove_all_pointers.h"
 #include "hw12-2.h"
 #include "type_printer.h"
+#include "hw12-4.h"
 
 #include <iostream>
 #include <typeinfo>
@@ -32,4 +33,21 @@ int main()
     cout<<"int & -> "<<hw12::TypePrinter<int &>()<<endl;
     cout<<"long && -> "<<hw12::TypePrinter<long &&>()<<endl;
     cout<<"char volatile -> "<<hw12::TypePrinter<char volatile>()<<endl;
+
+    cout<<typeid(hw12::product_t<int, double>).name()<<endl;
+
+    std::vector<int> v1{1,2,3,4,5};
+    std::vector<double> v2{.1, .2, .3, .4, .5};
+
+    auto res = hw12::outer_product(v1, v2);
+
+    for (const auto& row : res)
+    {
+        for (const auto& item : row)
+        {
+            cout << item << " ";
+        }
+
+        cout << endl;
+    }
 }

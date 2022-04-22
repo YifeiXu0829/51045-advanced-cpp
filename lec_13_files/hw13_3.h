@@ -37,9 +37,12 @@ template <typename T1, std::size_t N1, typename T2, std::size_t N2>
 decltype(auto)
 outer_product(const std::array<T1, N1>& a1, const std::array<T2, N2>& a2)
 {
+    static_assert(N1 > 0 && N2 > 0);
+
     std::array<
-        initialized_array<product_t<T1,T2>, N2>
-        ,N1> ret{};
+        decltype(initialized_array<product_t<T1,T2>, N2>(a1[0], a2[0])),
+        N1
+        > ret{};
 
     for (std::size_t i = 0; i<N1; ++i)
     {

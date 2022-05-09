@@ -23,6 +23,7 @@ namespace mpcs {
       virtual unique_ptr<T> doCreate(TT<T> &&) = 0;
     };
 
+    // !! look at this signature specialization Result(Args...)
 	template<typename Result, typename ...Args>
 	struct abstract_creator<Result(Args...)>
 	{
@@ -48,8 +49,9 @@ namespace mpcs {
 		}
 	};
 
+    // !! look at this signature specialization Result(Args...)
 	template<typename AbstractFactory, typename Result, typename... Args, typename Concrete>
-	struct concrete_creator<AbstractFactory, Result(Args...), Concrete> : virtual public AbstractFactory {
+	struct concrete_creator<AbstractFactory, Result(Args...), Concrete> : virtual public AbstractFactory    {
 		unique_ptr<Result> doCreate(TT<Result>&&, Args... args) {
 			return make_unique<Concrete>(args...);
 		}

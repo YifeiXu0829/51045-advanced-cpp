@@ -2,20 +2,20 @@
 #include <variant>
 
 template <typename Locomotive, typename FreightCar, typename Caboose>
-struct train
+struct train_factory
 {
     Locomotive locomotive;
     FreightCar freight_car;
     Caboose caboose;
 };
 using namespace cspp51045;
-using model_train = train<model_locomotive, model_freight_car, model_caboose>;
-using real_train = train<real_locomotive, real_freight_car, real_caboose>;
+using model_train_factory = train_factory<model_locomotive, model_freight_car, model_caboose>;
+using real_train_factory = train_factory<real_locomotive, real_freight_car, real_caboose>;
 int main()
 {
     using std::cout;
     using std::endl;
-    std::variant<model_train, real_train> v;
+    std::variant<model_train_factory, real_train_factory> v;
 
     while(true){
 
@@ -25,11 +25,11 @@ int main()
 
         if (option==2)
         {
-            v = model_train{};
+            v = model_train_factory{};
         }
         else if (option == 1)
         {
-            v = real_train{};
+            v = real_train_factory{};
         }
         else {
             return 0;

@@ -11,13 +11,14 @@ struct ostream_joiner
     }
     ostream& os_;
     std::string delimitor_{""};
-    bool is_start_{true};
+    bool is_first_{true};
 
     ostream_joiner& operator= (const T& value)
     {
-        if(is_start_)
+        if(is_first_)
         {
             os_ << value;
+            is_first_ = false;
         }
         else
         {
@@ -33,7 +34,6 @@ struct ostream_joiner
 
     ostream_joiner& operator++ ()
     {
-        is_start_ = false;
         return *this;
     }
 
